@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <script defer src="/js/managementTimeOffClient.js"></script>
+  <title>Request(s)</title>
+  <title>{{businessName}}</title>
+	  <nav>
+        <div class="left">
+            <img src="/img/QuickScheduleWordMarkLogo.png" alt="logo" height="50">
+        </div>
+	<h1>{{businessName}}</h1>
+        <div class="right">
+            <form action="/home" method="get">
+            <button>home</button>
+	</form>
+	<form>
+            <button onclick="history.back()">Back</button>
+	</form>
+	<form action="/loggout" method="get">
+            <button>Logout</button>
+	</form>
+        </div>
+      </nav>
+</head>
+
+<body>
+  <div class="main">
+    <p>Hello, {{name}}! These are your employee's requests.</p>
+
+    <h2>Pending</h2>
+    <table id="pendingg">
+      <tr>
+        <td>Name</td>
+        <td>Date</td>
+        <td>Reason</td>
+        <td>Approve/Deny</td>
+      </tr>
+    </table>
+    <h2>Approved</h2>
+    <table id="approvedd">
+      <tr>
+        <td>Name</td>
+        <td>Date</td>
+        <td>Reason</td>
+      </tr>
+    </table>
+    <h2>Denied</h2>
+    <table id="deniedd">
+      <tr>
+        <td>Name</td>
+        <td>Date</td>
+        <td>Reason</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

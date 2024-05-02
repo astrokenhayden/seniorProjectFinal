@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="client.js"></script>
+    <title>{{businessName}}</title>
+	  <nav>
+        <div class="left">
+            <img src="/img/QuickScheduleWordMarkLogo.png" alt="logo" height="50">
+        </div>
+	<h1>{{businessName}}</h1>
+        <div class="right">
+            <form action="/home" method="get">
+            <button>home</button>
+	</form>
+	<form>
+            <button onclick="history.back()">Back</button>
+	</form>
+	<form action="/loggout" method="get">
+            <button>Logout</button>
+	</form>
+        </div>
+      </nav>
+
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+
+</head>
+<body>
+    <div class="main">
+        <div id="worked"></div>
+      <h1>Hello {{name}}</h1>
+      <br>
+      <br>
+      <form action="/operationHours" method="post">
+      <h3>Hours of Operation</h3>
+      <table id="operatingHours">
+            <tr>
+                <td></td>
+                <td>Sunday</td>
+                <td>Monday</td>
+                <td>Tuesday</td>
+                <td>Wednesday</td>
+                <td>Thursday</td>
+                <td>Friday</td>
+                <td>Saturday</td>
+            </tr>
+            <tr>
+                <td>Start</td>
+                <td><input type="time" name="sundayOpen"></td>
+                <td><input type="time" name="mondayOpen"></td>
+                <td><input type="time" name="tuesdayOpen"></td>
+                <td><input type="time" name="wednesdayOpen"></td>
+                <td><input type="time" name="thursdayOpen"></td>
+                <td><input type="time" name="fridayOpen"></td>
+                <td><input type="time" name="SaturdayOpen"></td>
+            </tr>
+            <tr>
+                <td>End</td>
+                <td><input type="time" name="sundayClose"></td>
+                <td><input type="time" name="mondayClose"></td>
+                <td><input type="time" name="tuesdayClose"></td>
+                <td><input type="time" name="wednesdayClose"></td>
+                <td><input type="time" name="thursdayClose"></td>
+                <td><input type="time" name="fridayClose"></td>
+                <td><input type="time" name="SaturdayClose"></td>
+            </tr>
+        </table>
+        <button type="submit">Submit</button>
+	</form>
+      <br>     
+      <h3>Dept List</h3>
+      <ul>
+	{{#each deptList}}
+        <li><button>{{this.deptName}}:{{this.deptID}}</button></a></li>
+        {{/each}}
+      </ul>
+      <br>
+     Adding an employee: 
+        <form action="/createUser" method="post">
+            <label for="email">Email: </label><br>
+            <input type="text" id="email" name="email" required><br>
+            <label for="password">Password: </label><br>
+            <input type="password" id="password" name="password" required><br>
+            <label for="cdomain">Company Domain: </label><br>
+            <input type="text" id="cdomain" name="cdomain" required><br>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" required><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" required><br>
+            <label for="dept">Dept  Code:</label><br>
+            <input type="number" id="dept" name="dept" required><br>
+            <label for="start">Start Date:</label><br>
+            <input type="date" id="start" name="start" required><br>
+            <label for="emptype">Employee Type:</label><br>
+            <select id="emptype" name="emptype" required>
+                <option value="1">Manager</option>
+                <option value="2">Employee</option>
+            </select>
+            <br>
+            <label for="emphours">Employee Full/Part:</label><br>
+            <select id="emphours" name="emphours" required>
+                <option value="full">Full-Time (40 Hours)</option>
+                <option value="part">Part-Time (Less than 30)</option>
+            </select>
+            <br>
+            <button type="submit">New Employee</button>
+
+        </form>
+        <br><br><br><br>
+        <form action="/removeEmployee" method="post">
+            <label for="email">Email: </label><br>
+            <input type="text" id="email" name="email" required><br>
+            <button type="submit">Remove Employee</button>
+        </form>
+<br><br><br><br>
+
+	<div>
+	<form action="/addingDept" method="post">
+        Adding a dept:<br>
+        <label for="dept">Department Name: </label><br>
+        <input type="text" id="dept" name="dept" required><br>
+        <label for="deptCode">Deptartment Code: </label><br>
+        <input type="number" id="deptCode" name="deptCode" required><br>
+        <label for="managerEmail">Manager Email: </label><br>
+        <input type="text" id="managerEmail" name="managerEmail" required><br>
+
+        <button type="submit">Add a New Dept</button>
+    </form>
+<br><br><br><br>
+
+	</div> 
+	<form action="/allEmpSchedules" method="post">
+	<button>Accessing All Schedules</button>
+	</form>   
+</div>
+  </div>
+</body>
+</html>

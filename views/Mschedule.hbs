@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="/js/client.js"></script>
+    <script defer src="/js/schedule.js"></script>
+    <title>{{businessName}}</title>
+	  <nav>
+        <div class="left">
+            <img src="/img/QuickScheduleWordMarkLogo.png" alt="logo" height="50">
+        </div>
+	<h1>{{businessName}}</h1>
+        <div class="right">
+            <form action="/home" method="get">
+            <button>home</button>
+	</form>
+	<form>
+            <button onclick="history.back()">Back</button>
+	</form>
+	<form action="/loggout" method="get">
+            <button>Logout</button>
+	</form>
+        </div>
+      </nav>
+
+</head>
+<body>
+	<div class="main">
+        <h1>Auto-Generated Schedule</h1>
+        <div id="scheduleDiv">
+        </div>
+        <br>
+        <br>
+        Sunday Date:<input type="date" id="sunDate"><br>
+        Monday Hours: <input type="number" id="monHours"><br>
+        Tuesday Hours: <input type="number" id="tuesHours"><br>
+         Wednesday Hours: <input type="number" id="wedHours"><br>
+        Thursday Hours: <input type="number" id="thurHours"><br>
+         Friday Hours: <input type="number" id="friHours"><br>
+        Saturday Hours: <input type="number" id="satHours"><br>
+          Sunday Hours: <input type="number" id="sunHours"><br>
+          <button onclick="fillHoursPerDayArray()">Set Hours</button>
+        <button onclick="scheduleMe()">Create Next Schedule</button>
+    </div>
+   </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="client.js"></script>
+    <title>Quick Schedule</title> <!--Change name later-->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+  <nav>
+        <div class="left">
+            <img src="/img/QuickScheduleWordMarkLogo.png" alt="logo" height="50">
+        </div>
+
+        <div class="right">
+            <form action="/home" method="get">
+            <button>home</button>
+	</form>
+	<form>
+            <button onclick="history.back()">Back</button>
+	</form>
+	<form action="/loggout" method="get">
+            <button>Logout</button>
+	</form>
+        </div>
+      </nav>
+
+</head>
+<body>
+     <div class="main" id="login">
+      
+        <img src="/img/QuickScheduleWordMarkLogo.png" alt="logo" height="70">
+        <h1>Login</h3>
+            <form action="/login" method="post">
+                <label for="email">Email: </label><br>
+                <input type="text" id="email" name="email" required><br>
+                <label for="password">Password: </label><br>
+                <input type="password" id="password" name="password" required><br>
+                <button type="submit">Login</button>
+            </form>
+	<form action="/businessSignUp" method="get">
+	<button>Business Sign Up</button>
+	</form>
+    </div>
+</body>
+</html>

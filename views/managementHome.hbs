@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="client.js"></script>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+  	  <nav>
+        <div class="left">
+            <img src="/img/QuickScheduleWordMarkLogo.png" alt="logo" height="50">
+        </div>
+	<h1>{{businessName}}</h1>
+        <div class="right">
+            <form action="/home" method="get">
+            <button>home</button>
+	</form>
+	<form>
+            <button onclick="history.back()">Back</button>
+	</form>
+	<form action="/loggout" method="get">
+            <button>Logout</button>
+	</form>
+        </div>
+      </nav>
+    <title>{{businessName}}</title>
+</head>
+<body>
+        <div class="main">
+	<p>Hey, {{name}}! What are you looking to do today?</p>
+
+        <div class="flex">
+	<form action="/viewTimeOffManagement" method="get">
+        <button id="Moff" class="mButtons">View Time Off Request(s)</button>
+      </form>
+
+    <br>
+   <form action="/viewAvalibility" method="get">
+        <button class="mButtons">View Employee Availabity</button>
+      </form>
+    <br>
+     <form action="/getSchedule" method="get">
+        <button class="mButtons">Schedule Program</button>
+      </form>
+    <br>
+    </div>
+    </div>
+</body>
+</html>

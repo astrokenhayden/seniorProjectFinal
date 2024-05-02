@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="client.js"></script>
+    <title>Employee Availability</title>
+	  <nav>
+        <div class="left">
+            <img src="/img/QuickScheduleWordMarkLogo.png" alt="logo" height="50">
+        </div>
+	<h1>{{businessName}}</h1>
+        <div class="right">
+            <form action="/home" method="get">
+            <button>home</button>
+	</form>
+	<form>
+            <button onclick="history.back()">Back</button>
+	</form>
+	<form action="/loggout" method="get">
+            <button>Logout</button>
+	</form>
+        </div>
+      </nav>
+
+</head>
+<body>
+      <div class="main">
+        <form action="/submitAvalibility" method="post">
+        <select name="employeeName" id="nameSelect">
+            <option value="">Click Below</option>
+            {{#each employees}}
+                <option value="{{this.email}}">{{this.firstName}} {{this.lastName}}</option>
+            {{/each}}
+        </select>
+        <br>
+        <table id="availability">
+            <tr>
+                <td></td>
+                <td>Sunday</td>
+                <td>Monday</td>
+                <td>Tuesday</td>
+                <td>Wednesday</td>
+                <td>Thursday</td>
+                <td>Friday</td>
+                <td>Saturday</td>
+            </tr>
+            <tr>
+                <td>Start</td>
+                <td><input type="time" name="sundayStart"></td>
+                <td><input type="time" name="mondayStart"></td>
+                <td><input type="time" name="tuesdayStart"></td>
+                <td><input type="time" name="wednesdayStart"></td>
+                <td><input type="time" name="thursdayStart"></td>
+                <td><input type="time" name="fridayStart"></td>
+                <td><input type="time" name="SaturdayStart"></td>
+            </tr>
+            <tr>
+                <td>End</td>
+                <td><input type="time" name="sundayEnd"></td>
+                <td><input type="time" name="mondayEnd"></td>
+                <td><input type="time" name="tuesdayEnd"></td>
+                <td><input type="time" name="wednesdayEnd"></td>
+                <td><input type="time" name="thursdayEnd"></td>
+                <td><input type="time" name="fridayEnd"></td>
+                <td><input type="time" name="SaturdayEnd"></td>
+            </tr>
+	   <label for="daysPerWeek">Days Per Week:</label><br>
+            <input type="number" name="daysPerWeek"><br><br><br>
+        </table>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+</body>
+</html>

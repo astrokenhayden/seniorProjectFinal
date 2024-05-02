@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="client.js"></script>
+<link rel="stylesheet" href="css/jquery.passwordRequirements.css" />
+<script src="/path/to/cdn/jquery.min.js"></script>
+<script src="js/jquery.passwordRequirements.min.js"></script>
+
+
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+  <title>{{businessName}}</title>
+	  <nav>
+        <div class="left">
+            <img src="/img/QuickScheduleWordMarkLogo.png" alt="logo" height="50">
+        </div>
+	<h1>{{businessName}}</h1>
+        <div class="right">
+            <form action="/home" method="get">
+            <button>home</button>
+	</form>
+	<form>
+            <button onclick="history.back()">Back</button>
+	</form>
+	<form action="/loggout" method="get">
+            <button>Logout</button>
+	</form>
+        </div>
+      </nav>
+    <title>Business Registration</title>
+</head>
+<body>
+    <div class="main">
+          Adding an business: 
+        <form action="/businessCreate" method="post">
+            <label for="email">Email: </label><br>
+            <input type="text" id="email" name="email" required><br>
+            <label for="password">Password: </label><br>
+            <input type="password" id="password" name="password" class="pass" required><br>
+            <label for="cdomain">Company Domain: </label><br>
+            <input type="text" id="cdomain" name="cdomain" required><br>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" required><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" required><br>
+            <label for="businessName">Business name:</label><br>
+            <input type="text" id="businessName" name="businessName" required><br>
+            <label for="productKey">Product Key: </label><br>
+            <input type="text" id="productKey" name="productKey" required><br>
+            <br>
+            <input type="submit" value="Create Business">
+        </form>
+        <br><br><br><br>
+      
+      </div>
+<script>
+$("pass").passwordRequirements({
+  numCharacters: 8,
+  useLowercase: true,
+  useUppercase: true,
+  useNumbers: true,
+  useSpecial: true,
+  style:"dark",
+  fadeTime: 300
+
+
+});
+</script>
+
+</body>
+</html>

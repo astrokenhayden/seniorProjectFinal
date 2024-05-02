@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="/js/empHomeClient.js"></script>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <nav>
+        <div class="left">
+            <img src="/img/QuickScheduleWordMarkLogo.png" alt="logo" height="50">
+        </div>
+	<h1>{{businessName}}</h1>
+        <div class="right">
+            <form action="/home" method="get">
+            <button>home</button>
+	</form>
+	<form>
+            <button onclick="history.back()">Back</button>
+	</form>
+	<form action="/loggout" method="get">
+            <button>Logout</button>
+	</form>
+        </div>
+      </nav>
+
+    <title>Home {{businessName}}</title>
+</head>
+<body>
+<div class="main">
+     <h3>Hello, {{name}}</h3>
+
+    <div>
+<!--Pass in using hbs-->
+        <h1>Schedule</h1>
+	<table id="eTOR">
+	<tr>
+    <td>Week Start</td>
+    <td>Sunday</td>
+    <td>Monday</td>
+    <td>Tuesday</td>
+    <td>Wednesday</td>
+    <td>Thursday</td>
+    <td>Friday</td>
+    <td>Saturday</td>
+   </tr>
+        {{#each employeeSchedule}}
+            <tr>
+                <td>{{this.weekStart}}</td>
+                <td>{{this.sunday}}</td>
+                <td>{{this.monday}}</td>
+<td>{{this.tuesday}}</td>
+<td>{{this.wednesday}}</td>
+<td>{{this.thursday}}</td>
+<td>{{this.friday}}</td>
+<td>{{this.saturday}}</td>
+            </tr>
+	{{/each}}
+        </table>
+    </div>
+    <button class="popup">Request Time Off</button>
+    <div class="popupWindow">
+        <h1>Request Time Off Form</h1>
+        <p>
+	   <form action="/requestTimeOffEmployee" method="post"> 
+            <h3>Date:</h3>
+            <input id="startDate" name="startDate" type="date">
+            <h3>Reason:</h3>
+            <textarea name="reason" id="reasonTOR" cols="30" rows="5"></textarea>
+            <br>
+            <button type="submit" onclick="submitTOR()">Submit</button>
+            <br></p>
+	   </form>
+        <button class="closeButton">Close</button>
+      </div>  
+    <br>
+    <div>
+        <h2>Time Off Request(s)</h2>
+        <table id="eTOR">
+{{#each timeOff}}
+            <tr>
+                <td>{{this.date}}</td>
+                <td>{{this.approval}}</td>
+                <td>{{this.reason}}</td>
+            </tr>
+{{/each}}
+        </table>
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>
